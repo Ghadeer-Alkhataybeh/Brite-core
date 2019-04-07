@@ -17,6 +17,10 @@
               Amount
               <i class="material-icons">arrow_drop_down</i>
             </th>
+            <th @click="sort('Date')">
+              Date
+              <i class="material-icons">arrow_drop_down</i>
+            </th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -30,6 +34,7 @@
             <td>{{userInfo.Name}}</td>
             <td>{{userInfo.Description}}</td>
             <td>{{userInfo.Amount}}</td>
+            <td>{{userInfo.Date}}</td>
             <td>
               <router-link :to="{ name: 'EditUserInfo', params: {user: userInfo.Name}}">
                 <i class="material-icons ticon">edit</i>
