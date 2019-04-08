@@ -4,18 +4,26 @@
     <form class="submit" @submit.prevent="showAlert(editedUserName)">
       <label for="inp" class="inp">
         <span class="label">Name</span>
-        <span class="border"></span>
-        <input type="text" id="inp" :value="editedUserName" @input="editUserName">
-      </label>
-      <label for="inp" class="inp">
-        <span class="label">Description</span>
-        <span class="border"></span>
-        <input type="text" id="inp" :value="editedDescription" @input="editDescription">
+        <br>
+        <br>
+        <!-- incase we need to be able to edit the name -->
+        <!-- <input type="text" id="inp" :value="editedUserName" @input="editUserName"> -->
+        <span type="text" id="inp">{{editedUserName}}</span>
+        <br>
+        <br>
       </label>
       <label for="inp" class="inp">
         <span class="label">Amount</span>
-        <span class="border"></span>
-        <input type="text" id="inp" :value="editedAmount" @input="editAmount">
+        <br>
+        <br>
+        <!-- incase we need to be able to edit the amount -->
+        <!-- <input type="text" :value="editedAmount" @input="editAmount"> -->
+        <span type="text" id="inp">{{editedAmount}}</span>
+      </label>
+      <br>
+      <label for="inp" class="inp">
+        <span class="label">Description</span>
+        <input type="text" :value="editedDescription" @input="editDescription">
       </label>
       <div class="inp">
         <button class="btn-update">Update User Info</button>
@@ -141,6 +149,16 @@ export default {
   transition: all 0.15s ease;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+#inp {
+  width: 100%;
+  text-align: left;
+  float: left;
+  font-family: inherit;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #c8ccd4;
+  color: gray;
 }
 .container .btn-update {
   margin: 20px;
