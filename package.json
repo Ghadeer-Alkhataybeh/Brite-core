@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "convert-csv-to-json": "0.0.13",
+    "fernet": "^0.3.1",
     "firebase": "^5.8.0",
     "firebase-admin": "^6.5.0",
     "jest": "^24.1.0",
