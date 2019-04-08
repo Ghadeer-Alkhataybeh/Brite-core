@@ -54,6 +54,7 @@ export default {
     db.collection("UsersInfo")
       .add({
         Amount: context.state.addedAmount,
+        Date: context.state.addedDate,
         Description: context.state.addedDescription,
         Name: context.state.addedUserName
       })

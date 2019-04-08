@@ -108,7 +108,6 @@ export default {
   top: 10px;
   left: 0;
   font-size: 18px;
-  color: gray;
   font-weight: 500;
   transform-origin: 0 0;
   transition: all 0.2s ease;

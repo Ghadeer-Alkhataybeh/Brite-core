@@ -38,6 +38,7 @@ export default {
       Name: state.addedUserName,
       Description: state.addedDescription,
       Amount: state.addedAmount,
+      Date: state.addedDate,
       id: state.addedId
     };
 

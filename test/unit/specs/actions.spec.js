@@ -1,23 +1,23 @@
-import actions from '@/store/actions.js';
-import db from '@/firebase/init';
-import mutations from '@/store/mutations.js';
+import actions from "@/store/actions.js";
+import db from "@/firebase/init";
+import mutations from "@/store/mutations.js";
 
-import router from '@/router';
+import router from "@/router";
 
-describe('fetchData', () => {
+describe("fetchData", () => {
   const fetchData = () => {
-    db.collection('UsersInfo')
+    db.collection("UsersInfo")
       .get()
       .then(snapshot => {});
   };
-  test('the data is correctly fetched from fire store', async () => {
+  test("the data is correctly fetched from fire store", async () => {
     await expect(actions.fetchData()).toEqual(fetchData());
   });
 
-  test('fetchData should commits items returned by fire store method', async () => {
+  test("fetchData should commits items returned by fire store method", async () => {
     await actions.fetchData();
     const fetchData = () => {
-      db.collection('UsersInfo')
+      db.collection("UsersInfo")
         .get()
         .then(snapshot => {
           getSnapshot(snapshot);
@@ -28,33 +28,33 @@ describe('fetchData', () => {
       const state = {
         usersInfo: []
       };
-      expect(commit).toHaveBeenCalledWith('updateUsersInfo', true);
+      expect(commit).toHaveBeenCalledWith("updateUsersInfo", true);
     };
   });
 });
 
-describe('editData', () => {
-  it('Should retrieve specific user info', async () => {
+describe("editData", () => {
+  it("Should retrieve specific user info", async () => {
     let mockCommit = (state, payload) => {
       let mockData = payload;
     };
     const editData = name => {
-      let ref = db.collection('UsersInfo').where('Name', '==', name);
+      let ref = db.collection("UsersInfo").where("Name", "==", name);
 
       ref.get().then(snapshot => {
         console.log(snapshot);
       });
     };
-    const getEditData = editData('Ghadeer');
+    const getEditData = editData("Ghadeer");
 
-    const data = await actions.editData({ commit: mockCommit }, 'Ghadeer');
+    const data = await actions.editData({ commit: mockCommit }, "Ghadeer");
 
     expect(data).toEqual(getEditData);
   });
 
-  it('editData should commits items returned by fire store method', async () => {
+  it("editData should commits items returned by fire store method", async () => {
     const editData = name => {
-      let ref = db.collection('UsersInfo').where('Name', '==', name);
+      let ref = db.collection("UsersInfo").where("Name", "==", name);
 
       ref.get().then(snapshot => {
         getSnapshot(snapshot);
@@ -65,38 +65,37 @@ describe('editData', () => {
       const state = {
         usersInfo: []
       };
-      expect(commit).toHaveBeenCalledWith('updateUserInfo', true);
+      expect(commit).toHaveBeenCalledWith("updateUserInfo", true);
     };
-    const getEditData = editData('Ghadeer');
+    const getEditData = editData("Ghadeer");
   });
 });
 
-describe('deleteUserInfo', () => {
-  it('Should delete specific user info', async () => {
+describe("deleteUserInfo", () => {
+  it("Should delete specific user info", async () => {
     const state = {
-      id: 'Ghadeer'
+      id: "Ghadeer"
     };
     let mockCommit = (state, payload) => {
       let mockData = payload;
     };
     const deleteUserInfo = id => {
-      db.collection('UsersInfo')
+      db.collection("UsersInfo")
         .doc(id)
         .delete()
-        .then(() => {
-        });
+        .then(() => {});
     };
     const deletedInfo = deleteUserInfo(state.id);
     const data = await actions.deleteUserInfo({ commit: mockCommit }, state.id);
     expect(data).toEqual(deletedInfo);
   });
 
-  it('deleteUserInfo should commits items returned by fire store method', async () => {
+  it("deleteUserInfo should commits items returned by fire store method", async () => {
     const state = {
-      id: 'Ghadeer'
+      id: "Ghadeer"
     };
     const deleteUserInfo = id => {
-      db.collection('UsersInfo')
+      db.collection("UsersInfo")
         .doc(id)
         .delete()
         .then(() => {
@@ -109,14 +108,14 @@ describe('deleteUserInfo', () => {
       const state = {
         usersInfo: []
       };
-      expect(commit).toHaveBeenCalledWith('updateDeletedUser', true);
+      expect(commit).toHaveBeenCalledWith("updateDeletedUser", true);
     };
     const getdeleteUserInfo = deleteUserInfo(state.id);
   });
 });
 
-describe('AddUser', () => {
-  it('Should Add a user info', async () => {
+describe("AddUser", () => {
+  it("Should Add a user info", async () => {
     let mockCommit = (state, payload) => {
       let mockData = payload;
     };
@@ -124,20 +123,21 @@ describe('AddUser', () => {
     const context = {
       state: {
         addedAmount: 123,
-        addedDescription: 'abc def ghi',
-        addedUserName: 'Jouana Obeidat',
-       }
+        addedDate: new Date().toISOString(),
+        addedDescription: "abc def ghi",
+        addedUserName: "Jouana Obeidat"
+      }
     };
 
     const AddUser = state => {
-      db.collection('UsersInfo')
+      db.collection("UsersInfo")
         .add({
           Amount: state.addedAmount,
+          Date: state.addedDate,
           Description: state.addedDescription,
           Name: state.addedUserName
         })
-        .then(() => {
-        })
+        .then(() => {})
         .catch(err => {
           console.log(err);
         });
@@ -145,13 +145,13 @@ describe('AddUser', () => {
 
     const getAddData = AddUser(context.state);
 
-    const data = await actions.AddUser( context ,{ commit: mockCommit });
+    const data = await actions.AddUser(context, { commit: mockCommit });
     expect(data).toEqual(getAddData);
   });
 });
 
-describe('EditUser', () => {
-  it('Should edit a user info', async () => {
+describe("EditUser", () => {
+  it("Should edit a user info", async () => {
     let mockCommit = (state, payload) => {
       let mockData = payload;
     };
@@ -159,30 +159,29 @@ describe('EditUser', () => {
     const context = {
       state: {
         editedAmount: 123,
-        editedDescription: 'abc def ghi',
-        editedUserName: 'Jouana Obeidat',
-        id: 'abc'
-       }
+        editedDescription: "abc def ghi",
+        editedUserName: "Jouana Obeidat",
+        id: "abc"
+      }
     };
 
     const EditUser = (state, id) => {
-      db.collection('UsersInfo')
-      .doc(id)
-      .update({
-        Amount: state.editedAmount,
-        Description: state.editedDescription,
-        Name: state.editedUserName
+      db.collection("UsersInfo")
+        .doc(id)
+        .update({
+          Amount: state.editedAmount,
+          Description: state.editedDescription,
+          Name: state.editedUserName
         })
-        .then(() => {
-        })
+        .then(() => {})
         .catch(err => {
           console.log(err);
         });
     };
 
-    const getEditData = EditUser(context.state,'abc');
+    const getEditData = EditUser(context.state, "abc");
 
-    const data = await actions.EditUser( context, 'abc' );
+    const data = await actions.EditUser(context, "abc");
     expect(data).toEqual(getEditData);
   });
 });

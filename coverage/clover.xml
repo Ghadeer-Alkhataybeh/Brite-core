@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1554733240901" clover="3.2.0">
-  <project timestamp="1554733240901" name="All files">
+<coverage generated="1554739189488" clover="3.2.0">
+  <project timestamp="1554739189488" name="All files">
     <metrics statements="174" coveredstatements="52" conditionals="39" coveredconditionals="3" methods="71" coveredmethods="23" elements="284" coveredelements="78" complexity="0" loc="174" ncloc="174" packages="6" files="12" classes="12"/>
     <package name="root">
       <metrics statements="12" coveredstatements="3" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -176,12 +176,12 @@
         <line num="44" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="54" count="2" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
       </file>
       <file name="getters.js" path="C:\Users\user\Desktop\Brite-core\src\store\getters.js">
         <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
@@ -213,18 +213,18 @@
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="4" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="72" count="1" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
       </file>
       <file name="state.js" path="C:\Users\user\Desktop\Brite-core\src\store\state.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

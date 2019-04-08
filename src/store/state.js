@@ -4,6 +4,7 @@ export default {
   addedUserName: null,
   addedDescription: null,
   addedAmount: null,
+  addedDate: new Date().toISOString(),
   addedId: null,
   editedUserName: null,
   editedDescription: null,
